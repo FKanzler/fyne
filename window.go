@@ -9,6 +9,8 @@ type Window interface {
 	// SetTitle updates the current title of the window.
 	SetTitle(string)
 
+	SetPos(int, int)
+
 	// FullScreen returns whether or not this window is currently full screen.
 	FullScreen() bool
 	// SetFullScreen changes the requested fullScreen property
