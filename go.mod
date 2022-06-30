@@ -35,4 +35,4 @@ require (
 	honnef.co/go/js/dom v0.0.0-20210725211120-f030747120f2
 )
 
-replace fyne.io/fyne/v2 => github.com/FKanzler/fyne v1.14
+replace fyne.io/fyne/v2 => github.com/FKanzler/fyne v2.2.1
