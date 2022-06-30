@@ -1,4 +1,4 @@
-module github.com/FKanzler/fyne
+module fyne.io/fyne/v2
 
 go 1.14
 
@@ -34,3 +34,5 @@ require (
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 	honnef.co/go/js/dom v0.0.0-20210725211120-f030747120f2
 )
+
+replace fyne.io/fyne/v2 => github.com/FKanzler/fyne v1.14
