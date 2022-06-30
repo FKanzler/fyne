@@ -37,8 +37,18 @@ func (w *window) SetTitle(title string) {
 	})
 }
 
-func (w *window) FullScreen() bool {
-	return w.fullScreen
+func (w *window) SetTitle(title string) {
+	w.title = title
+
+	w.runOnMainWhenCreated(func() {
+		w.view().SetTitle(title)
+	})
+}
+
+func (w *window) SetPos(xpos int, ypos int) {
+	w.runOnMainWhenCreated(func() {
+		w.view().SetPos(xpos, ypos)
+	})
 }
 
 // minSizeOnScreen gets the padded minimum size of a window content in screen pixels
