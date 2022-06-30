@@ -5,8 +5,8 @@ import (
 	"github.com/go-gl/glfw/v3.3/glfw"
 )
 
-func (d *gLDriver) CreateCustomWindow(title string, decorate, transparent, centered bool) fyne.Window {
-	win := d.createCustomWindow(title, decorate, transparent)
+func (d *gLDriver) CreateCustomWindow(title string, decorate, transparent, onTop, centered bool) fyne.Window {
+	win := d.createCustomWindow(title, decorate, transparent, onTop)
 	if centered {
 		win.SetPadded(false)
 		win.CenterOnScreen()
@@ -14,7 +14,7 @@ func (d *gLDriver) CreateCustomWindow(title string, decorate, transparent, cente
 	return win
 }
 
-func (d *gLDriver) createCustomWindow(title string, decorate, transparent bool) fyne.Window {
+func (d *gLDriver) createCustomWindow(title string, decorate, transparent, onTop bool) fyne.Window {
 	var ret *window
 	if title == "" {
 		title = defaultTitle
@@ -22,7 +22,7 @@ func (d *gLDriver) createCustomWindow(title string, decorate, transparent bool) 
 	runOnMain(func() {
 		d.initGLFW()
 
-		ret = &window{title: title, decorate: decorate, transparent: transparent, driver: d}
+		ret = &window{title: title, decorate: decorate, transparent: transparent, onTop: onTop, driver: d}
 		// This queue is destroyed when the window is closed.
 		ret.InitEventQueue()
 		go ret.RunEventQueue()

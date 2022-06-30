@@ -66,6 +66,7 @@ type window struct {
 	createLock  sync.Once
 	decorate    bool
 	transparent bool
+	onTop       bool
 	closing     bool
 	fixedSize   bool
 
@@ -651,6 +652,12 @@ func (w *window) create() {
 			glfw.WindowHint(glfw.TransparentFramebuffer, 1)
 		} else {
 			glfw.WindowHint(glfw.TransparentFramebuffer, 0)
+		}
+
+		if w.onTop {
+			glfw.WindowHint(glfw.Floating, 1)
+		} else {
+			glfw.WindowHint(glfw.Floating, 0)
 		}
 
 		if w.fixedSize {

@@ -5,5 +5,5 @@ import (
 )
 
 type DriverCustom interface {
-	CreateCustomWindow(title string, decorate, transparent, centered bool) fyne.Window
+	CreateCustomWindow(title string, decorate, transparent, onTop, centered bool) fyne.Window
 }
